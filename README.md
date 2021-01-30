@@ -9,6 +9,8 @@ Apache.httpd was used as the server with WSGI plugin.
 
 Output of test runs (suffixed with .out) are stored in scripts folder. 
 
+Database folder contains scripts to create the database tables and stored procedures. 
+
 Send questions to "vishvanata@gatech.edu". 
 
 
