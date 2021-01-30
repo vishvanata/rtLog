@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>RTLog - HTML5</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">RTlog</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="api.html">API</a></li>
+								<li><a href="dronesList.html">List of Active Drones</a></li>
+                                <li><a href="dronesListLL.html">List of Active Drones - Search</a></li>
+								<li><a href="Admin.html">Admin Log In</a></li>
+                                 <li><a href="AdminDronesList.html">AdminView - Active Drones</a></li>
+                                <li><a href="AdminFlightsList.html">AdminView - Completed Flights</a></li>
+								<li><a href="signUp.html">Sign Up</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+						<header>
+							<div class="inner">
+								<h2><img src="rtLog-pic.jpg" width="600" height="330"></h2>
+							The only real-time log of all unmanned vehicles available for public to use. Developers can use our API to create their own applications to display the data on mobile devices and automobiles. Active vehicles around a 1 mile Radius of where you are can be fetched and displayed on a map plotting the vehicals. Very interesting and attractive apps can be created. Simple to use the REST API. </div>
+						</header>
+
+						<!-- Content -->
+							<div class="wrapper">
+								<div class="inner">
+					  <section>
+										<h3 class="major">API and code snippets</h3>
+									<p>REST API to log  : This is the API that is called to create/register a unmanned vehical, to update log and flight status. below is the resource endpoint URL.<br>
+									  <strong>hostname (dev) : </strong>vishva.mynetgear.com:70<br>
+								      <strong>endpoint URL:</strong> http://&lt;hostname&gt;:&lt;port&gt;/rtLog/v1.0/log </p>
+                        <h4>iNVOKING THE API using curl</h4>
+						  <pre>&#32;
+						  <p>curl -i -H &quot;Content-Type: application/json&quot; -X POST -d '<br>{<br>	&quot;slno&quot;: &quot;30-51-CB-81-F0-9B&quot;,<br>	&quot;email&quot;: &quot;test@rtlog-test.com&quot;,<br>	&quot;ipaddress&quot;: &quot;192.168.0.130&quot;,<br>	&quot;description&quot;: &quot;my-atl-drone-ar-parrot-2.0.A&quot;, <br>	&quot;latitude&quot;: &quot;34.075375&quot;,<br>	&quot;longitude&quot;: &quot;-84.294090&quot;,<br>	&quot;inactive&quot; : FALSE <br>	} http://vishva.mynetgear.com:70/rtLog/v1.0/log<br>
+					    </p> 
+						  </pre>
+					    <ul>
+					      <li><a href="createForm.html" title="rtLog/v1.0/create HTTP POST" target="new"><font color="yellow">Create API: HTTP FORM example to log</font></a></li>
+</ul>
+
+<hr>
+                          
+					    </section>
+								   										
+									<h4>Python code block to invoke &quot;create&quot; api.</h4>
+									  <pre>import&#32;requests<br><br>#define&#32;variables&#32;to&#32;url<br>create_url&#32;= 'http://vishva.mynetgear.com:70/rtLog/v1.0/log'; <br><br>def&#32;log(idata):<br>&#32;&#32;&#32;&#32;myResponse&#32;=&#32;requests.post(create_url,&#32;params=idata);<br>&#32;&#32;&#32;&#32;print&#32;(myResponse.status_code)<br><br>#&#32;Invoke&#32;the&#32;functions&#32;here.<br>#&#32;call&#32;create()<br><br>import&#32;urllib<br>values&#32;=&#32;{<br>	      &quot;slno&quot;: &quot;30-51-CB-81-F0-9B&quot;,<br>	      &quot;email&quot;: &quot;test@rtlog-test.com&quot;,<br>	      &quot;ipaddress&quot;: &quot;192.168.0.130&quot;,<br>	      &quot;description&quot;: &quot;my-atl-drone-ar-parrot-2.0.A&quot;, <br>	      &quot;latitude&quot;: &quot;34.075375&quot;,<br>	      &quot;longitude&quot;: &quot;-84.294090&quot;,<br>	      &quot;inactive&quot; : FALSE <br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};<br><br>idata&#32;=&#32;urllib.urlencode(values);<br>log(idata);</pre>
+								  </section>
+
+									
+
+									
+										
+
+				
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

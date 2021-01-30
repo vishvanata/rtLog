@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+    	<title>RTLog - HTML5</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+        
+        <style> 
+input[type=mtext] {
+    size=12;
+	box-sizing: border-box;
+    border: none;
+    background-color: #A9A9A9;
+	border: 1px solid red;
+    border-radius: 1px;
+    color: red;
+}
+input[type=rtext] {
+    size=3;
+	box-sizing: border-box;
+    border: none;
+    background-color: #A9A9A9;
+	border: 1px solid red;
+    border-radius: 1px;
+    color: red;
+}
+</style>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+function getData(lat,long,radius) {
+	var nameValue = document.getElementById("InputLLR").value;
+	var x = document.getElementById("InputLLR");
+    var in_latitude= x.elements[0].value
+	var in_longitude= x.elements[1].value
+	var in_radius = x.elements[2].value
+    var data_url = "http://vishva.mynetgear.com:70/rtLog/v1.0/listLL?latitude=" + in_latitude + "&longitude=" + in_longitude
+    	$.getJSON(data_url,function (data) {
+            processData(data.data);
+        });
+ }
+ 
+ function processData(data) {
+	var out = "<table class='alt'>"
+	// create title
+	out += "<tr><td>" + 
+        "Createdatetime" +
+        "</td><td>" +
+        "Current_latitude" +
+        "</td><td>" +
+        "Current_longitude" +
+		 "</td><td>" +
+		"Description" +
+        "</td><td>" +
+        "Lastupdatetime" +
+        "</td></tr>";
+
+    for(var i = 0; i < data.length; i++) {
+        out += "<tr><td>" + 
+        data[i].createdatetime +
+        "</td><td>" +
+        data[i].current_latitude +
+        "</td><td>" +
+        data[i].current_longitude +
+		 "</td><td>" +
+		data[i].description +
+        "</td><td>" +
+        data[i].lastupdatetime +
+        "</td></tr>";
+    }
+    out += "</table>";
+	document.getElementById("id01").innerHTML = out;    
+ }
+ 
+</script>
+	</head>
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">RTlog</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="api.html">API</a></li>
+								<li><a href="dronesList.html">List of Active Drones</a></li>
+                                <li><a href="dronesListLL.html">List of Active Drones - Search</a></li>
+								<li><a href="Admin.html">Admin Log In</a></li>
+                                 <li><a href="AdminDronesList.html">AdminView - Active Drones</a></li>
+                                <li><a href="AdminFlightsList.html">AdminView - Completed Flights</a></li>
+								<li><a href="signUp.html">Sign Up</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+						<header>
+                           <h3>&nbsp;&nbsp;<font color="red">Active Drones List for a given Lat and  Long: </font><h3> 			
+						</header>	
+						<!-- Content -->
+                        <font color="#999999">&nbsp;&nbsp;&nbsp;<div id="id09"></div></font><br>
+                        <form id="InputLLR">
+  Lat:<input type="mtext" name="latitude" maxlength="12" size="12" style="font-family:monospace">
+  Long:<input type="mtext" name="longitude" maxlength="12" size="12" style="font-family:monospace">
+  Radius:<input type="rtext" name="radius" maxlength="3" size="3" value=1 style="font-family:monospace">
+  <input class="actions small" type="button" onclick="getData()" value="Search">
+</form>
+                       <div id="id01"></div> 
+							<div class="wrapper">
+								<div class="inner">
+
+					  <section>
+										<h3 class="major">&nbsp;</h3>
+					  </section>
+					</section>	
+
+										
+
+				
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
